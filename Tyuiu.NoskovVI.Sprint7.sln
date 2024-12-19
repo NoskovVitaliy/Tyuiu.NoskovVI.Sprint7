@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.NoskovVI.Sprint7.Proj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.V8", "Tyuiu.NoskovVI.Sprint7.Project.V8\Project.V8.csproj", "{CD25AA08-48EC-47CB-AD4F-7848F328119F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{265A7B7D-60C6-46D8-B861-F2BAFE8C217A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{CD25AA08-48EC-47CB-AD4F-7848F328119F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD25AA08-48EC-47CB-AD4F-7848F328119F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD25AA08-48EC-47CB-AD4F-7848F328119F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{265A7B7D-60C6-46D8-B861-F2BAFE8C217A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{265A7B7D-60C6-46D8-B861-F2BAFE8C217A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{265A7B7D-60C6-46D8-B861-F2BAFE8C217A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{265A7B7D-60C6-46D8-B861-F2BAFE8C217A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
