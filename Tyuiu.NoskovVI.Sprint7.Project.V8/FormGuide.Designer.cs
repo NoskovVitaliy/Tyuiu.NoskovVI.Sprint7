@@ -38,7 +38,7 @@
             labelGuide_NVI.AutoSize = true;
             labelGuide_NVI.Location = new Point(3, 50);
             labelGuide_NVI.Name = "labelGuide_NVI";
-            labelGuide_NVI.Size = new Size(790, 280);
+            labelGuide_NVI.Size = new Size(790, 300);
             labelGuide_NVI.TabIndex = 0;
             labelGuide_NVI.Text = resources.GetString("labelGuide_NVI.Text");
             // 
