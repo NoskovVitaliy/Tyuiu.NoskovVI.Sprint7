@@ -18,7 +18,7 @@ namespace Project.V8
             mainFormDataGrid = dataGrid;
             InitializeComponent();
         }
-
+        //Считывание ячеек с таблицы
         private static int[] GetIntCellsFromColumn(int column)
         {
             int[] columnArray = new int[mainFormDataGrid.RowCount];
@@ -38,7 +38,7 @@ namespace Project.V8
             }
             return columnArray;
         }
-
+        //Нахождение самых повторяющихся элементов
         private static string GetMostRepeatedString(int column)
         {
             var query = GetStringCellsFromColumn(column).GroupBy(x => x)
@@ -92,7 +92,8 @@ namespace Project.V8
             this.chartMarkToSpeed_NVI.ChartAreas[0].AxisX.Title = "Скорость";
             this.chartMarkToSpeed_NVI.ChartAreas[0].AxisY.Title = "Расход топлива";
             this.chartMarkToSpeed_NVI.Series[0].Points.Clear();
-
+            Array.Sort(GetIntCellsFromColumn(5));
+            Array.Sort(GetIntCellsFromColumn(7));
             for (int i = 0; i < mainFormDataGrid.Rows.Count; i++)
             {
                 this.chartMarkToSpeed_NVI.Series[0].Points.AddXY(GetIntCellsFromColumn(5)[i], GetIntCellsFromColumn(7)[i]);

@@ -16,7 +16,7 @@ namespace Project.V8
             saveFileDialogInfo_NVI.Filter = "Значения, разделенные запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
 
         }
-
+        //Общая функция поиска
         public void Search(DataGridView dataGrid, string searchValue, int searchableValue)
         {
             dataGrid.ClearSelection();
@@ -33,7 +33,7 @@ namespace Project.V8
                 }
             }
         }
-
+        //Общее сокрытие рядов
         public void InvisibleRowsByColors(DataGridView dataGrid, Color color, bool rowVisibility)
         {
             foreach (DataGridViewRow row in dataGrid.Rows)
@@ -47,6 +47,8 @@ namespace Project.V8
         DataService ds = new DataService();
         public string? openFilePath;
         public bool fileOpened = false;
+
+        //Содержит прошлые значения ячеек(до редактирования)
         public int cellInt = 0;
         public string? cellString = String.Empty;
         private void infoToolStripMenuItem_NVI_Click(object sender, EventArgs e)
@@ -72,6 +74,7 @@ namespace Project.V8
             formGuide.ShowDialog();
         }
 
+        //Загрузка файла в таблицы, активация кнопок
         private void buttonLoad_NVI_Click(object sender, EventArgs e)
         {
             try
@@ -93,6 +96,7 @@ namespace Project.V8
                         {
                             this.dataGridViewAuto_NVI.Rows[i].Cells[j].Value = Convert.ToInt32(gridInfo[i][j]);
                             this.dataGridViewChanged_NVI.Rows[i].Cells[j].Value = Convert.ToInt32(gridInfo[i][j]);
+                            //Для забивания типов данных столбцов(Понадобится больше)
                             this.dataGridViewAuto_NVI.Columns[j].ValueType = typeof(int);
                             this.dataGridViewChanged_NVI.Columns[j].ValueType = typeof(int);
 
@@ -118,7 +122,7 @@ namespace Project.V8
             }
 
         }
-
+        //Поиск в зависимости от выбранной таблицы
         private void buttonSearchDriverNum_NVI_Click(object sender, EventArgs e)
         {
             //if (this.dataGridViewChanged_NVI.Rows[0].Cells[1].ValueType == typeof(string))
@@ -152,7 +156,7 @@ namespace Project.V8
                     break;
             }
         }
-
+        //Логика галочек у некоторых кнопок
         private void EnableEditToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.disableEditToolStripMenuItem_NVI.Checked = false;
@@ -166,7 +170,7 @@ namespace Project.V8
             this.disableEditToolStripMenuItem_NVI.Checked = true;
             this.dataGridViewChanged_NVI.ReadOnly = true;
         }
-
+        //Сохранение файла(без помеченных строк)
         private void buttonSave_NVI_Click(object sender, EventArgs e)
         {
             this.saveFileDialogInfo_NVI.FileName = "OutPutAuto.csv";
@@ -203,6 +207,7 @@ namespace Project.V8
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            //Задание максимальной длины элементов в столбцах
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[1]).MaxInputLength = 6;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[2]).MaxInputLength = 20;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[3]).MaxInputLength = 30;
@@ -218,7 +223,8 @@ namespace Project.V8
                 buttonLoad_NVI.Focus();
             }));
         }
-
+        //Проверяет значение с тем, что было раньше и не отмечает ячейку если они сходятся
+        //Также проверяет, чтобы ячейки не были пустыми
         private void dataGridViewChanged_NVI_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             bool isInt = cellInt != 0;
@@ -271,7 +277,7 @@ namespace Project.V8
             }
         }
 
-
+        //Ограничение на ввод некоторых символов в зависимости от типа ячейки
         private void dataGridViewChanged_NVI_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             bool isCellString = (this.dataGridViewChanged_NVI.CurrentCell.ValueType == typeof(string));
@@ -290,7 +296,7 @@ namespace Project.V8
 
             }
         }
-
+        //Выключение кнопок при переходе на первую таблмцу
         private void tabControlData_NVI_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.tabControlData_NVI.SelectedIndex == 1 && fileOpened)
@@ -307,10 +313,17 @@ namespace Project.V8
                 this.buttonMarkDelete_NVI.Visible = false;
                 this.buttonUnMarkDelete_NVI.Enabled = false;
                 this.buttonUnMarkDelete_NVI.Visible = false;
+                this.buttonTrueDelete_NVI.Enabled = false;
+                this.buttonTrueDelete_NVI.Visible = false;
                 this.dataGridViewChanged_NVI.SelectionMode = DataGridViewSelectionMode.CellSelect;
             }
         }
         #region ToolTipChange
+        private void buttonTrueDelete_NVI_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipInfo_NVI.ToolTipTitle = "Удалить";
+            toolTipInfo_NVI.ToolTipIcon = ToolTipIcon.Info;
+        }
         private void buttonAdd_NVI_MouseEnter(object sender, EventArgs e)
         {
             toolTipInfo_NVI.ToolTipTitle = "Добавить";
@@ -383,7 +396,7 @@ namespace Project.V8
 
 
         }
-
+        //Покраска выделенных ячеек на удаление
         private void buttonMarkDelete_NVI_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in this.dataGridViewChanged_NVI.SelectedRows)
@@ -394,7 +407,7 @@ namespace Project.V8
                 }
             }
         }
-
+        //Убирание покраски удаления
         private void buttonUnMarkDelete_NVI_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in this.dataGridViewChanged_NVI.SelectedRows)
@@ -408,13 +421,13 @@ namespace Project.V8
                 }
             }
         }
-
+        //Сохраняет предыдущие значения
         private void dataGridViewChanged_NVI_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             cellInt = this.dataGridViewChanged_NVI.CurrentCell.ValueType == typeof(int) ? Convert.ToInt32(this.dataGridViewChanged_NVI.CurrentCell.Value) : 0;
             cellString = this.dataGridViewChanged_NVI.CurrentCell.ValueType == typeof(string) ? this.dataGridViewChanged_NVI.CurrentCell.Value.ToString() : String.Empty;
         }
-
+        //Покраска новых строк
         private void buttonAdd_NVI_Click(object sender, EventArgs e)
         {
             this.dataGridViewChanged_NVI.Rows.Add(000, "######", "НЕИЗВЕСТНО", "НЕИЗВЕСТНО", "НЕИЗВЕСТНО", 0, 0, 0);
@@ -423,7 +436,7 @@ namespace Project.V8
                 cell.Style.BackColor = Color.Aqua;
             }
         }
-
+        //Фильтры
         private void redRowsToolStripMenuItem_NVI_Click(object sender, EventArgs e)
         {
 
@@ -467,17 +480,19 @@ namespace Project.V8
                 }
             }
         }
-
+        //Окончательное удаление строк(и)
         private void buttonTrueDelete_NVI_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Вы ДЕЙСТВИТЕЛЬНО уверены, что хотите удалить данный ряд? Это действие необратимо.", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmResult == DialogResult.Yes)
             {
-                foreach(DataGridViewRow row in dataGridViewChanged_NVI.SelectedRows)
+                foreach (DataGridViewRow row in dataGridViewChanged_NVI.SelectedRows)
                 {
                     this.dataGridViewChanged_NVI.Rows.RemoveAt(row.Index);
                 }
             }
         }
+
+
     }
 }

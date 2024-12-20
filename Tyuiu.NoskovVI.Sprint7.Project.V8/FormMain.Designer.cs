@@ -624,9 +624,11 @@
             buttonTrueDelete_NVI.Name = "buttonTrueDelete_NVI";
             buttonTrueDelete_NVI.Size = new Size(34, 29);
             buttonTrueDelete_NVI.TabIndex = 5;
+            toolTipInfo_NVI.SetToolTip(buttonTrueDelete_NVI, "Окончательно удалить ряд");
             buttonTrueDelete_NVI.UseVisualStyleBackColor = true;
             buttonTrueDelete_NVI.Visible = false;
             buttonTrueDelete_NVI.Click += buttonTrueDelete_NVI_Click;
+            buttonTrueDelete_NVI.MouseEnter += buttonTrueDelete_NVI_MouseEnter;
             // 
             // buttonUnMarkDelete_NVI
             // 
