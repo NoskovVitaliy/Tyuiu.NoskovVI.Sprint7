@@ -287,7 +287,7 @@ namespace Project.V8
 
         private void NumInput(object? sender, KeyPressEventArgs e)
         {
-            if (!((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '-' || e.KeyChar == 8))
+            if (!((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == 8))
             {
                 e.Handled = true;
             }
@@ -517,7 +517,5 @@ namespace Project.V8
                 }
             }
         }
-
-
     }
 }
