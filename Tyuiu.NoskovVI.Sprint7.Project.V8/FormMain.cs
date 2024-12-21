@@ -47,6 +47,8 @@ namespace Project.V8
         DataService ds = new DataService();
         public string? openFilePath;
         public bool fileOpened = false;
+        AutoCompleteStringCollection driverNumComplete = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection autoNumComplete = new AutoCompleteStringCollection();
 
         //Содержит прошлые значения ячеек(до редактирования)
         public int cellInt = 0;
@@ -110,7 +112,18 @@ namespace Project.V8
                         }
                     }
                 }
-                this.tabControlData_NVI.SelectedIndex = 0;
+                
+                for (int i = 0; i < dataGridViewAuto_NVI.RowCount; i++)
+                {
+                    driverNumComplete.Add(this.dataGridViewAuto_NVI.Rows[i].Cells[0].Value.ToString());
+                    autoNumComplete.Add(this.dataGridViewAuto_NVI.Rows[i].Cells[1].Value.ToString());
+                }
+                this.textBoxSearchDriverNum_NVI.AutoCompleteCustomSource = driverNumComplete;
+                this.textBoxSearchDriverNum_NVI.AutoCompleteMode = AutoCompleteMode.Suggest;
+                this.textBoxSearchDriverNum_NVI.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                this.textBoxAutoNumSearch_NVI.AutoCompleteCustomSource = autoNumComplete;
+                this.textBoxAutoNumSearch_NVI.AutoCompleteMode = AutoCompleteMode.Suggest;
+                this.textBoxAutoNumSearch_NVI.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 fileOpened = true;
                 this.buttonSave_NVI.Enabled = true;
                 this.statsToolStripMenuItem_NVI.Enabled = true;
@@ -129,6 +142,7 @@ namespace Project.V8
             //{
             //    MessageBox.Show("Это ???");
             //}
+            this.textBoxAutoNumSearch_NVI.AutoCompleteMode = AutoCompleteMode.Suggest;
             string searchValue = this.textBoxSearchDriverNum_NVI.Text;
             switch (this.tabControlData_NVI
                 .SelectedIndex)
@@ -215,7 +229,7 @@ namespace Project.V8
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[5]).MaxInputLength = 3;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[6]).MaxInputLength = 4;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[7]).MaxInputLength = 5;
-
+            
 
 
             this.BeginInvoke(new Action(() =>
@@ -236,6 +250,16 @@ namespace Project.V8
                     if ((isInt && Convert.ToInt32(this.dataGridViewChanged_NVI.CurrentCell.Value) != cellInt) || (isString && this.dataGridViewChanged_NVI.CurrentCell.Value.ToString() != cellString))
                     {
                         this.dataGridViewChanged_NVI.CurrentCell.Style.BackColor = Color.Green;
+                        if (e.ColumnIndex == 0)
+                        {
+                            driverNumComplete.Remove(cellInt.ToString());
+                            driverNumComplete.Add(this.dataGridViewChanged_NVI.CurrentCell.Value.ToString());
+                        }
+                        if (e.ColumnIndex == 1)
+                        {
+                            autoNumComplete.Remove(cellString);
+                            autoNumComplete.Add(this.dataGridViewChanged_NVI.CurrentCell.Value.ToString());
+                        }
                     }
                 }
 
@@ -281,15 +305,16 @@ namespace Project.V8
         private void dataGridViewChanged_NVI_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             bool isCellString = (this.dataGridViewChanged_NVI.CurrentCell.ValueType == typeof(string));
+            bool isAutoNum = (this.dataGridViewChanged_NVI.CurrentCell.ColumnIndex == 1);
             if (e.Control is DataGridViewTextBoxEditingControl textBoxEditingControl)
             {
                 textBoxEditingControl.KeyPress -= NumInput;
                 textBoxEditingControl.KeyPress -= StringInput;
-                if (isCellString)
+                if (isCellString && !isAutoNum)
                 {
                     textBoxEditingControl.KeyPress += StringInput;
                 }
-                else
+                else if (!isCellString && !isAutoNum)
                 {
                     textBoxEditingControl.KeyPress += NumInput;
                 }
@@ -430,7 +455,7 @@ namespace Project.V8
         //Покраска новых строк
         private void buttonAdd_NVI_Click(object sender, EventArgs e)
         {
-            this.dataGridViewChanged_NVI.Rows.Add(000, "######", "НЕИЗВЕСТНО", "НЕИЗВЕСТНО", "НЕИЗВЕСТНО", 0, 0, 0);
+            this.dataGridViewChanged_NVI.Rows.Add(0, "######", "НЕИЗВЕСТНО", "НЕИЗВЕСТНО", "НЕИЗВЕСТНО", 0, 0, 0);
             foreach (DataGridViewCell cell in this.dataGridViewChanged_NVI.Rows[^1].Cells)
             {
                 cell.Style.BackColor = Color.Aqua;
