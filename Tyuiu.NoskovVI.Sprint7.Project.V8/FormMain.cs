@@ -144,45 +144,45 @@ namespace Project.V8
             //}
             this.textBoxAutoNumSearch_NVI.AutoCompleteMode = AutoCompleteMode.Suggest;
             string searchValue = this.textBoxSearchDriverNum_NVI.Text;
-            switch (this.tabControlData_NVI
-                .SelectedIndex)
+            try
+            {    
+                switch (this.tabControlData_NVI
+                    .SelectedIndex)
+                {
+                    case 0:
+                        Search(this.dataGridViewAuto_NVI, searchValue, 0);
+                        break;
+                    case 1:
+                        Search(this.dataGridViewChanged_NVI, searchValue, 0);
+                        break;
+                }
+            }
+            catch
             {
-                case 0:
-                    Search(this.dataGridViewAuto_NVI, searchValue, 0);
-                    break;
-                case 1:
-                    Search(this.dataGridViewChanged_NVI, searchValue, 0);
-                    break;
+                MessageBox.Show("Данный ряд скрыт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void buttonSearchAutoNum_NVI_Click(object sender, EventArgs e)
         {
             string searchValue = this.textBoxAutoNumSearch_NVI.Text;
-            switch (this.tabControlData_NVI
-                .SelectedIndex)
-            {
-                case 0:
-                    Search(this.dataGridViewAuto_NVI, searchValue, 1);
-                    break;
-                case 1:
-                    Search(this.dataGridViewChanged_NVI, searchValue, 1);
-                    break;
+            try
+            {    
+                switch (this.tabControlData_NVI
+                    .SelectedIndex)
+                {
+                    case 0:
+                        Search(this.dataGridViewAuto_NVI, searchValue, 1);
+                        break;
+                    case 1:
+                        Search(this.dataGridViewChanged_NVI, searchValue, 1);
+                        break;
+                }
             }
-        }
-        //Логика галочек у некоторых кнопок
-        private void EnableEditToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.disableEditToolStripMenuItem_NVI.Checked = false;
-            this.enableEditToolStripMenuItem_NVI.Checked = true;
-            this.dataGridViewChanged_NVI.ReadOnly = false;
-        }
-
-        private void disableEditToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.enableEditToolStripMenuItem_NVI.Checked = false;
-            this.disableEditToolStripMenuItem_NVI.Checked = true;
-            this.dataGridViewChanged_NVI.ReadOnly = true;
+            catch
+            {
+                MessageBox.Show("Данный ряд скрыт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         //Сохранение файла(без помеченных строк)
         private void buttonSave_NVI_Click(object sender, EventArgs e)

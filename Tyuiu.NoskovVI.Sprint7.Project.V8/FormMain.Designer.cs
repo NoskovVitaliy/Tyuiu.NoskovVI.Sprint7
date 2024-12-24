@@ -53,9 +53,6 @@
             statsToolStripMenuItem_NVI = new ToolStripMenuItem();
             toolStripSeparator_NVI = new ToolStripSeparator();
             exitToolStripMenuItem_NVI = new ToolStripMenuItem();
-            editOnOffToolStripMenuItem_NVI = new ToolStripMenuItem();
-            enableEditToolStripMenuItem_NVI = new ToolStripMenuItem();
-            disableEditToolStripMenuItem_NVI = new ToolStripMenuItem();
             filterToolStripMenuItem_NVI = new ToolStripMenuItem();
             redRowsToolStripMenuItem_NVI = new ToolStripMenuItem();
             aquaRowsToolStripMenuItem_NVI = new ToolStripMenuItem();
@@ -126,7 +123,7 @@
             // 
             menuStripTools_NVI.GripStyle = ToolStripGripStyle.Visible;
             menuStripTools_NVI.ImageScalingSize = new Size(20, 20);
-            menuStripTools_NVI.Items.AddRange(new ToolStripItem[] { programToolStripMenuItem_NVI, editOnOffToolStripMenuItem_NVI, filterToolStripMenuItem_NVI, helpToolStripMenuItem_NVI });
+            menuStripTools_NVI.Items.AddRange(new ToolStripItem[] { programToolStripMenuItem_NVI, filterToolStripMenuItem_NVI, helpToolStripMenuItem_NVI });
             menuStripTools_NVI.Location = new Point(0, 0);
             menuStripTools_NVI.Name = "menuStripTools_NVI";
             menuStripTools_NVI.Size = new Size(1305, 28);
@@ -161,29 +158,6 @@
             exitToolStripMenuItem_NVI.Text = "Выход";
             exitToolStripMenuItem_NVI.ToolTipText = "Выйти из приложения";
             exitToolStripMenuItem_NVI.Click += exitToolStripMenuItem_NVI_Click;
-            // 
-            // editOnOffToolStripMenuItem_NVI
-            // 
-            editOnOffToolStripMenuItem_NVI.DropDownItems.AddRange(new ToolStripItem[] { enableEditToolStripMenuItem_NVI, disableEditToolStripMenuItem_NVI });
-            editOnOffToolStripMenuItem_NVI.Name = "editOnOffToolStripMenuItem_NVI";
-            editOnOffToolStripMenuItem_NVI.Size = new Size(137, 24);
-            editOnOffToolStripMenuItem_NVI.Text = "Редактирование";
-            // 
-            // enableEditToolStripMenuItem_NVI
-            // 
-            enableEditToolStripMenuItem_NVI.Name = "enableEditToolStripMenuItem_NVI";
-            enableEditToolStripMenuItem_NVI.Size = new Size(170, 26);
-            enableEditToolStripMenuItem_NVI.Text = "Включить";
-            enableEditToolStripMenuItem_NVI.Click += EnableEditToolStripMenuItem_Click;
-            // 
-            // disableEditToolStripMenuItem_NVI
-            // 
-            disableEditToolStripMenuItem_NVI.Checked = true;
-            disableEditToolStripMenuItem_NVI.CheckState = CheckState.Checked;
-            disableEditToolStripMenuItem_NVI.Name = "disableEditToolStripMenuItem_NVI";
-            disableEditToolStripMenuItem_NVI.Size = new Size(170, 26);
-            disableEditToolStripMenuItem_NVI.Text = "Выключить";
-            disableEditToolStripMenuItem_NVI.Click += disableEditToolStripMenuItem_Click;
             // 
             // filterToolStripMenuItem_NVI
             // 
@@ -430,7 +404,6 @@
             dataGridViewChanged_NVI.Dock = DockStyle.Fill;
             dataGridViewChanged_NVI.Location = new Point(3, 3);
             dataGridViewChanged_NVI.Name = "dataGridViewChanged_NVI";
-            dataGridViewChanged_NVI.ReadOnly = true;
             dataGridViewChanged_NVI.RowHeadersVisible = false;
             dataGridViewChanged_NVI.RowHeadersWidth = 51;
             dataGridViewChanged_NVI.Size = new Size(975, 407);
@@ -447,7 +420,6 @@
             driverNoChanged_NVI.HeaderText = "№";
             driverNoChanged_NVI.MinimumWidth = 6;
             driverNoChanged_NVI.Name = "driverNoChanged_NVI";
-            driverNoChanged_NVI.ReadOnly = true;
             driverNoChanged_NVI.Width = 30;
             // 
             // autoNumberChanged_NVI
@@ -457,7 +429,6 @@
             autoNumberChanged_NVI.HeaderText = "Знаки";
             autoNumberChanged_NVI.MinimumWidth = 6;
             autoNumberChanged_NVI.Name = "autoNumberChanged_NVI";
-            autoNumberChanged_NVI.ReadOnly = true;
             autoNumberChanged_NVI.Width = 80;
             // 
             // autoMarkChanged_NVI
@@ -467,7 +438,6 @@
             autoMarkChanged_NVI.HeaderText = "Марка";
             autoMarkChanged_NVI.MinimumWidth = 6;
             autoMarkChanged_NVI.Name = "autoMarkChanged_NVI";
-            autoMarkChanged_NVI.ReadOnly = true;
             autoMarkChanged_NVI.Width = 90;
             // 
             // technicalConditionChanged_NVI
@@ -477,7 +447,6 @@
             technicalConditionChanged_NVI.HeaderText = "Тех. состояние";
             technicalConditionChanged_NVI.MinimumWidth = 6;
             technicalConditionChanged_NVI.Name = "technicalConditionChanged_NVI";
-            technicalConditionChanged_NVI.ReadOnly = true;
             technicalConditionChanged_NVI.Width = 125;
             // 
             // autoLocationnChanged_NVI
@@ -487,7 +456,6 @@
             autoLocationnChanged_NVI.HeaderText = "Место";
             autoLocationnChanged_NVI.MinimumWidth = 6;
             autoLocationnChanged_NVI.Name = "autoLocationnChanged_NVI";
-            autoLocationnChanged_NVI.ReadOnly = true;
             autoLocationnChanged_NVI.Width = 110;
             // 
             // autoSpeedChanged_NVI
@@ -498,7 +466,6 @@
             autoSpeedChanged_NVI.HeaderText = "Скорость(Км\\ч)";
             autoSpeedChanged_NVI.MinimumWidth = 6;
             autoSpeedChanged_NVI.Name = "autoSpeedChanged_NVI";
-            autoSpeedChanged_NVI.ReadOnly = true;
             autoSpeedChanged_NVI.Width = 120;
             // 
             // autoCarryingChanged_NVI
@@ -508,7 +475,6 @@
             autoCarryingChanged_NVI.HeaderText = "Грузоподъем(т)";
             autoCarryingChanged_NVI.MinimumWidth = 6;
             autoCarryingChanged_NVI.Name = "autoCarryingChanged_NVI";
-            autoCarryingChanged_NVI.ReadOnly = true;
             autoCarryingChanged_NVI.Width = 120;
             // 
             // autoFuelChanged_NVI
@@ -518,7 +484,6 @@
             autoFuelChanged_NVI.HeaderText = "Расход топлива(л\\100км)";
             autoFuelChanged_NVI.MinimumWidth = 6;
             autoFuelChanged_NVI.Name = "autoFuelChanged_NVI";
-            autoFuelChanged_NVI.ReadOnly = true;
             autoFuelChanged_NVI.Width = 120;
             // 
             // tabControlSearch_NVI
@@ -830,9 +795,6 @@
         private TabPage autoNumbersSearch_NVI;
         private Button buttonSearchAutoNum_NVI;
         private TextBox textBoxAutoNumSearch_NVI;
-        private ToolStripMenuItem editOnOffToolStripMenuItem_NVI;
-        private ToolStripMenuItem enableEditToolStripMenuItem_NVI;
-        private ToolStripMenuItem disableEditToolStripMenuItem_NVI;
         private Button buttonUnMarkDelete_NVI;
         private Button buttonMarkDelete_NVI;
         private ToolStripMenuItem filterToolStripMenuItem_NVI;

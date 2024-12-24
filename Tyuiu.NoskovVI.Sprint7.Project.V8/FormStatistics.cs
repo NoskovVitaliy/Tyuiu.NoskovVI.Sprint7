@@ -43,7 +43,7 @@ namespace Project.V8
         {
             var query = GetStringCellsFromColumn(column).GroupBy(x => x)
                                                              .Where(item => item.Count() > 1)
-                                                             .Select(item => new { Number = item.Count(), Name = item.Key})
+                                                             .Select(item => new {Number = item.Count(), Name = item.Key})
                                                              .ToArray();
             if (query.Length == 0) return "-";
             string repetition = "Error";
@@ -86,7 +86,7 @@ namespace Project.V8
             labelPopularMark_NVI.Text += " " + GetMostRepeatedString(2);
             labelPopularLocation_NVI.Text += " " + GetMostRepeatedString(4);
             labelAutoCondition_NVI.Text += " " + GetMostRepeatedString(3);
-            labelRichDriver_NVI.Text += " " + GetMostRepeatedString(0);
+            labelRichDriver_NVI.Text += " " + "№" + GetMostRepeatedString(0);
             labelAquaRowCount_NVI.Text += " " + RowsCount(Color.Aqua).ToString();
             labelRedRowsCount_NVI.Text += " " + RowsCount(Color.OrangeRed).ToString();
             this.chartMarkToSpeed_NVI.ChartAreas[0].AxisX.Title = "Скорость";
