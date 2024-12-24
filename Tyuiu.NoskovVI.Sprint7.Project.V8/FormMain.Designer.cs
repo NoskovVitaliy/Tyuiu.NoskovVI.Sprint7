@@ -199,7 +199,7 @@
             // infoToolStripMenuItem_NVI
             // 
             infoToolStripMenuItem_NVI.Name = "infoToolStripMenuItem_NVI";
-            infoToolStripMenuItem_NVI.Size = new Size(178, 26);
+            infoToolStripMenuItem_NVI.Size = new Size(224, 26);
             infoToolStripMenuItem_NVI.Text = "Справка";
             infoToolStripMenuItem_NVI.ToolTipText = "Справка о создателе";
             infoToolStripMenuItem_NVI.Click += infoToolStripMenuItem_NVI_Click;
@@ -207,7 +207,7 @@
             // guideToolStripMenuItem_NVI
             // 
             guideToolStripMenuItem_NVI.Name = "guideToolStripMenuItem_NVI";
-            guideToolStripMenuItem_NVI.Size = new Size(178, 26);
+            guideToolStripMenuItem_NVI.Size = new Size(224, 26);
             guideToolStripMenuItem_NVI.Text = "Руководство";
             guideToolStripMenuItem_NVI.ToolTipText = "Руководство пользователя";
             guideToolStripMenuItem_NVI.Click += guideToolStripMenuItem_NVI_Click;
@@ -347,7 +347,7 @@
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             autoSpeed_NVI.DefaultCellStyle = dataGridViewCellStyle6;
-            autoSpeed_NVI.HeaderText = "Скорость(Км\\ч)";
+            autoSpeed_NVI.HeaderText = "Средняя скорость(Км\\ч)";
             autoSpeed_NVI.MaxInputLength = 3;
             autoSpeed_NVI.MinimumWidth = 6;
             autoSpeed_NVI.Name = "autoSpeed_NVI";
@@ -369,7 +369,7 @@
             // 
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             autoFuel_NVI.DefaultCellStyle = dataGridViewCellStyle8;
-            autoFuel_NVI.HeaderText = "Расход топлива(л\\100км)";
+            autoFuel_NVI.HeaderText = "Средний расход топлива(л\\100км)";
             autoFuel_NVI.MaxInputLength = 5;
             autoFuel_NVI.MinimumWidth = 6;
             autoFuel_NVI.Name = "autoFuel_NVI";
@@ -801,14 +801,6 @@
         private ToolStripMenuItem redRowsToolStripMenuItem_NVI;
         private ToolStripMenuItem aquaRowsToolStripMenuItem_NVI;
         public DataGridView dataGridViewChanged_NVI;
-        private DataGridViewTextBoxColumn driverNo_NVI;
-        private DataGridViewTextBoxColumn autoNumber_NVI;
-        private DataGridViewTextBoxColumn autoMark_NVI;
-        private DataGridViewTextBoxColumn technicalCondition_NVI;
-        private DataGridViewTextBoxColumn autoLocation_NVI;
-        private DataGridViewTextBoxColumn autoSpeed_NVI;
-        private DataGridViewTextBoxColumn autoCarrying_NVI;
-        private DataGridViewTextBoxColumn autoFuel_NVI;
         private DataGridViewTextBoxColumn driverNoChanged_NVI;
         private DataGridViewTextBoxColumn autoNumberChanged_NVI;
         private DataGridViewTextBoxColumn autoMarkChanged_NVI;
@@ -818,5 +810,13 @@
         private DataGridViewTextBoxColumn autoCarryingChanged_NVI;
         private DataGridViewTextBoxColumn autoFuelChanged_NVI;
         private Button buttonTrueDelete_NVI;
+        private DataGridViewTextBoxColumn driverNo_NVI;
+        private DataGridViewTextBoxColumn autoNumber_NVI;
+        private DataGridViewTextBoxColumn autoMark_NVI;
+        private DataGridViewTextBoxColumn technicalCondition_NVI;
+        private DataGridViewTextBoxColumn autoLocation_NVI;
+        private DataGridViewTextBoxColumn autoSpeed_NVI;
+        private DataGridViewTextBoxColumn autoCarrying_NVI;
+        private DataGridViewTextBoxColumn autoFuel_NVI;
     }
 }

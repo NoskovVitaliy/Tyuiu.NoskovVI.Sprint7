@@ -226,8 +226,8 @@ namespace Project.V8
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[2]).MaxInputLength = 20;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[3]).MaxInputLength = 30;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[4]).MaxInputLength = 30;
-            ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[5]).MaxInputLength = 3;
-            ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[6]).MaxInputLength = 4;
+            ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[5]).MaxInputLength = 5;
+            ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[6]).MaxInputLength = 5;
             ((DataGridViewTextBoxColumn)dataGridViewChanged_NVI.Columns[7]).MaxInputLength = 5;
             
 
