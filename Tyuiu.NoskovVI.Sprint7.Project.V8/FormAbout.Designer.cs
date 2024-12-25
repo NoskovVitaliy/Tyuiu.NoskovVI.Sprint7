@@ -37,7 +37,7 @@
             // 
             // pictureBoxAvatar_NVI
             // 
-            pictureBoxAvatar_NVI.BackgroundImage = Properties.Resources.MyAvatar;
+            pictureBoxAvatar_NVI.BackgroundImage = Properties.Resources.avatar;
             pictureBoxAvatar_NVI.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBoxAvatar_NVI.Location = new Point(12, 12);
             pictureBoxAvatar_NVI.Name = "pictureBoxAvatar_NVI";

@@ -199,7 +199,7 @@
             // infoToolStripMenuItem_NVI
             // 
             infoToolStripMenuItem_NVI.Name = "infoToolStripMenuItem_NVI";
-            infoToolStripMenuItem_NVI.Size = new Size(224, 26);
+            infoToolStripMenuItem_NVI.Size = new Size(178, 26);
             infoToolStripMenuItem_NVI.Text = "Справка";
             infoToolStripMenuItem_NVI.ToolTipText = "Справка о создателе";
             infoToolStripMenuItem_NVI.Click += infoToolStripMenuItem_NVI_Click;
@@ -207,7 +207,7 @@
             // guideToolStripMenuItem_NVI
             // 
             guideToolStripMenuItem_NVI.Name = "guideToolStripMenuItem_NVI";
-            guideToolStripMenuItem_NVI.Size = new Size(224, 26);
+            guideToolStripMenuItem_NVI.Size = new Size(178, 26);
             guideToolStripMenuItem_NVI.Text = "Руководство";
             guideToolStripMenuItem_NVI.ToolTipText = "Руководство пользователя";
             guideToolStripMenuItem_NVI.Click += guideToolStripMenuItem_NVI_Click;
@@ -680,6 +680,7 @@
             // 
             // buttonLoad_NVI
             // 
+            buttonLoad_NVI.Anchor = AnchorStyles.Left;
             buttonLoad_NVI.AutoSize = true;
             buttonLoad_NVI.BackColor = SystemColors.ControlLightLight;
             buttonLoad_NVI.BackgroundImageLayout = ImageLayout.None;
@@ -696,7 +697,7 @@
             // 
             // buttonSave_NVI
             // 
-            buttonSave_NVI.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSave_NVI.Anchor = AnchorStyles.Right;
             buttonSave_NVI.AutoSize = true;
             buttonSave_NVI.BackColor = SystemColors.ControlLightLight;
             buttonSave_NVI.BackgroundImageLayout = ImageLayout.Center;
