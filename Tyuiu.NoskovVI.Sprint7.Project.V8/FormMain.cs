@@ -188,9 +188,9 @@ namespace Project.V8
         private void buttonSave_NVI_Click(object sender, EventArgs e)
         {
             this.saveFileDialogInfo_NVI.FileName = "OutPutAuto.csv";
-            this.saveFileDialogInfo_NVI.InitialDirectory = Directory.GetCurrentDirectory();
+            this.saveFileDialogInfo_NVI.InitialDirectory = @"C:\DataSprint7";
 
-            string path = "C:\\DataSprint7\\OutPutAuto.csv";
+            string path = @$"C:\DataSprint7\{saveFileDialogInfo_NVI.FileName}";
             if (File.Exists(path)) { File.Delete(path); }
 
             int row = this.dataGridViewChanged_NVI.RowCount;
@@ -213,7 +213,14 @@ namespace Project.V8
                             str += this.dataGridViewChanged_NVI.Rows[i].Cells[j].Value.ToString() + ";";
                         }
                     }
-                    File.AppendAllText(path, str + Environment.NewLine);
+                    if (i == row-1)
+                    {
+                        File.AppendAllText(path, str);
+                    }
+                    else
+                    {
+                        File.AppendAllText(path,str + Environment.NewLine);
+                    }
                     str = "";
                 }
             }
